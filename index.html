@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambohimad </title>
+    <link rel="stylesheet" href="C:/Users/DELL/SitewebAmbohimad/styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">  
+    
+    
+</head>
+<body>
+    <div id="app">
+    <header>
+        
+        <div class="social-icons">
+            <div class="icon-text">
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <span>Nous suivre</span>
+            </div>
+            <div class="icon-text">
+                <a href="#adherer"><i class="fas fa-user"></i></a>
+                <span>Adhérer</span>
+            </div>
+            <div class="icon-text">
+                <a href="#contact"><i class="fas fa-message"></i></a>
+                <span>Nous contacter</span>
+            </div>
+        </div>
+        
+        
+        <h1>
+            <img src="C:\Users\DELL\SitewebAmbohimad\Image\Logo.png" alt="Logo" style="width: 200px; height: auto;">
+        </h1>
+        
+        <nav>
+            <ul style="padding: 0;">
+                <li href="#Qui_sommes_nous" class="menu-link qui-sommes-nous"></a></li>
+                <li href="#Nos_evenements" class="menu-link nos-evenements"></a></li>
+                <li href="#Ici_en_mayenne" class="menu-link ici-en-mayenne"></a></li>
+                <li href="#Labas_a_madagascar" class="menu-link labas-a-madagascar"></a></li>
+                <li href="#ambohitheque" class="menu-link ambohitheque"></a></li>
+            </ul>
+       
+        <nav>
+            <ul style="padding: 0;">
+                <li><a class="menu-link Qui-sommes-nous"><button  @click="ShowQuiSommesNous">Qui Sommes nous</button></a></li>
+                <li><a class="menu-link Nos-evenements" ><button class="menu-link" @click="ShowNosEvenement">Nos événements</button></a></li>
+                <li><a class="menu-link Ici-en-mayenne"><button class="menu-link" @click="ShowIciEnMayenne" text>Ici en Mayenne</button></a></li>
+                <li><a class="menu-link Labas-a-madagascar"><button class="menu-link" @click="ShowLabasAMadagascar" text>Là-bas en Madagascar</button></a></li>
+                <li><a class="menu-link Ambohitheque"><button class="menu-link" @click="ShowAmbohitheque" text>Ambohithèque</button></a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    
+        
+        <v-app>
+            <v-main>
+                <v-container>
+                    
+                    <!-- Page d'accueil -->
+                    <v-card class="section" v-show="showaccueil">
+                        <v-row>
+                            <v-spacer class="col-3"></v-spacer>
+                            <v-card-text>
+                                <v-row>
+                                    <v-spacer></v-spacer>
+                                    <v-img src="C:\Users\DELL\SitewebAmbohimad\Image\acc.jpg" class="col-10"></v-img>
+                                    <v-spacer></v-spacer>
+                                </v-row>
+                            </v-card-text>
+                        </v-row>
+                    </v-card>
+                
+                    
+                    <!-- Présentation de l'Association -->
+                    <v-card class="section qui-sommes-nous-card" v-show="showquisommesnous">
+                        
+                        <v-card-title class="qui-sommes-nous-title">
+                            Qui sommes nous ?
+                        </v-card-title>
+                        <v-card-text class="qui-sommes-nous-text">
+                            <p>L'Association Ambohimad se consacre à améliorer la communauté à travers diverses initiatives. Depuis notre fondation, nous avons réalisé plusieurs actions pour soutenir notre cause et aider ceux dans le besoin. Voici quelques-unes de nos réalisations : Nous croyons en la force du collectif et nous sommes toujours ouverts aux nouveaux membres qui partagent notre passion pour le changement positif.</p>    
+                        </v-card-text>
+
+                        <v-card-title >
+                            Les membres du conseils d'administration :
+                        </v-card-title>
+                        <!-- Section des membres du conseil d'administration -->
+                        <v-container class="members-section" v-show="showquisommesnous">
+                            <v-list>
+                                <v-list-item-group>
+                                    <v-list-item v-for="membre in membres" :key="membre.nom">
+                                        <v-list-item-avatar>
+                                            <v-img :src="membre.photo" class="member-photo" contain></v-img>
+                                        </v-list-item-avatar>
+                                        <v-list-item-content>
+                                            <v-list-item-title class="member-name">{{ membre.nom }}</v-list-item-title>
+                                            <v-list-item-subtitle class="member-role">{{ membre.role }}</v-list-item-subtitle>
+                                        </v-list-item-content>
+                                    </v-list-item>
+                                </v-list-item-group>
+                            </v-list>
+                        </v-container>
+                        <v-card-title>
+                            On parle de nous :
+                        </v-card-title>
+                        <v-card-text>
+                            <a href="https://www.ouest-france.fr/article-lien" target="_blank" class="link-style">
+                                Ouest France 29 Février 2024
+                            </a>
+                        </v-card-text>
+                    </v-card>
+                
+
+                    <!-- Actions réalisées par l'Association -->
+                    <v-card class="section qui-sommes-nous-card" v-show="shownosevenement">
+                        <v-card-title class="event-title">
+                            Nos Événements
+                        </v-card-title>
+                        <v-card-title >
+                            Ici
+                        </v-card-title>
+                        <v-card-text class="event-details">
+                            <div class="event-item" v-for="evenement in evenementsici" :key="evenement.nom">
+                                <p class="event-name">{{ evenement.nom }}</p>
+                                <div class="event-info">
+                                    <p class="event-time">Heure : {{ evenement.heure }}</p>
+                                    <p class="event-location">Lieu : {{ evenement.lieu }}</p>
+                                </div>
+                            </div>
+                        </v-card-text>
+                        <v-card-title >
+                            La-bas
+                        </v-card-title>
+                        <v-card-text class="event-details">
+                            <div class="event-item" v-for="evenement in evenementslabas" :key="evenement.nom">
+                                <p class="event-name">{{ evenement.nom }}</p>
+                                <div class="event-info">
+                                    <p class="event-time">Heure : {{ evenement.heure }}</p>
+                                    <p class="event-location">Lieu : {{ evenement.lieu }}</p>
+                                </div>
+                            </div>
+                        </v-card-text>
+                                      
+                    </v-card>
+
+                    <v-card class="section qui-sommes-nous-card" v-show="showicienmayenne"> 
+                        <v-card-title class="ici-en-mayenne-title1">
+                            Ici en Mayenne
+                        </v-card-title>
+                        <v-card-text class="ici-en-mayenne-details1">
+                            <div v-for="(evenement, index) in evenementsicienmayenne" :key="evenement.nom" class="event-item1" :class="{'reverse-layout1': index % 2 !== 0}">
+                                <div class="event-description1">
+                                    <h3 class="event-name1">{{ evenement.nom }}</h3>
+                                    <p class="event-time1">Heure : {{ evenement.heure }}</p>
+                                    <p class="event-location1">Lieu : {{ evenement.lieu }}</p>
+                                    <p class="event-description-text1">{{ evenement.description }}</p>
+                                </div>
+                                <v-img :src="evenement.photo" class="event-photo1" contain></v-img>
+                            </div>
+                        </v-card-text>
+                    </v-card>
+
+                    <v-card class="section qui-sommes-nous-card" v-show="showambohitheque">
+                        <v-card-title class="ambohitheque-title">
+                          Ambohithèque
+                        </v-card-title>
+                        <v-card-text class="ambohitheque-details">
+                          <div v-for="(ouvrage, index) in ouvragesAmbohitheque" :key="ouvrage.titre" class="book-item" :class="{'reverse-layout': index % 2 !== 0}">
+                            
+                            <!-- Première colonne : Visuel (photo) -->
+                            <div class="book-photo-container">
+                              <v-img :src="ouvrage.photo" class="book-photo" contain></v-img>
+                            </div>
+              
+                            <!-- Deuxième colonne : Titre, Auteur, Éditeur, Année d'édition -->
+                            <div class="book-info">
+                              <h3 class="book-title">{{ ouvrage.titre }}</h3>
+        
+                                <span class="event-author">Auteur : {{ ouvrage.auteur }}</span>
+                                <span class="event-editor">Éditeur : {{ ouvrage.editeur }}</span>
+                                <span class="event-year">Année d'édition : {{ ouvrage.annee }}</span>
+                            
+                            </div>
+              
+                            <!-- Troisième colonne : Résumé -->
+                            <div class="book-summary">
+                              <p>{{ ouvrage.resume }}</p>
+                            </div>
+                          </div>
+                        </v-card-text>
+                      </v-card>
+
+                </v-container>
+            </v-main>
+
+
+            <!-- Pied de page -->
+            <v-footer class="footer1" >
+                <v-container class="footer1">
+                    <p class="footer">&copy; 2024 Ambohimad. Tous droits réservés.</p>
+                </v-container>
+        </v-app>
+        
+
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script language="javascript" src="C:/Users/DELL/SitewebAmbohimad/scripts/script.js"></script>
+    
+</body>
+</html>
